@@ -1,11 +1,18 @@
 # Java_Tree
 
-1. First ordered list item
-2. Another item
-   * Test
-3. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-4. And another item.
+The purpose of this project is to create visually apealing trees in Java using Trees data structures. 
+
+## Change it to your liking!
+It is easy modify many properties of the trees.
+Here is a list of the things you can change in this code.
+1. Number of trees
+2. Size of trees
+3. Angle position of trees
+3. Angle separation
+4. Length (by adjusting subtraction factor, or root length)
+5. Delay between paintings
+
+
 
 
 ![alt text](https://github.com/Maickii/Java_Tree/blob/master/2017-03-05%20(2).png "Tree")
