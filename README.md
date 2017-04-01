@@ -13,11 +13,12 @@ Here is a list of the things you can change in this code.
    }
 ```
 
-2. Size of trees
+2. **Size of trees.**  
+use `tree.setSize(13);` to change the size of the tree.
 3. Positions
 3. Angle position of trees
 3. Angle separation
-4. Length (by adjusting subtraction factor, or root length)
+4. Length
 5. Delay between paintings
 
 
