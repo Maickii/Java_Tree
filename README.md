@@ -23,7 +23,7 @@ use `tree.setSeparationAngle(Angle);` to set the angle seperation between branch
 
 5. Delay between paintings  
 
-###Done!
+### Done!
 After you are done editing your tree, just call `tree.draw();` to draw it!
 
 
