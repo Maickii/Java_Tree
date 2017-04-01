@@ -7,7 +7,7 @@ It is easy modify many properties of the trees.
 Here is a list of the things you can change in this code.
 1. Number of trees
    * Just add more Tree objects `Tree tree = new Tree(15);` to main.
-```Java
+   * ```Java
 public static void main(String[] args) {
 		Tree tree = new Tree(15);
 }
