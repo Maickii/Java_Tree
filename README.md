@@ -19,7 +19,7 @@ use `tree.setSize(size);` to change the size of the tree.
 3. **Angle position of trees**  
 use `tree.setTreeAngle(angle);` to set the angle of the tree. Angle is measured in degrees, where 0 is the right-most of the screen  and 180 is the left-most of the screen.
 3. **Angle separation**  
-use `tree.setSeparationAngle(Angle);` to set the angle seperation between branches. This angle will dictate how far appart should each branch be from its sibling branch.
+use `tree.setSeparationAngle(Angle);` to set the angle seperation between branches. This angle will dictate how far appart should each branch be from its sibling branch. You can get funny/interesiting looking trees if you play with this property. 
 
 5. **Delay between paintings**    
 
