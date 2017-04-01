@@ -10,9 +10,9 @@ Here is a list of the things you can change in this code.
 ```Java
    public static void main(String[] args) {
       Tree tree = new Tree(15);
-      }
+   }
 ```
-Tree tree = new Tree(15);
+
 2. Size of trees
 3. Angle position of trees
 3. Angle separation
