@@ -14,6 +14,7 @@ Here is a list of the things you can change in this code.
 ```
 
 2. Size of trees
+3. Positions
 3. Angle position of trees
 3. Angle separation
 4. Length (by adjusting subtraction factor, or root length)
