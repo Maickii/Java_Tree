@@ -13,15 +13,15 @@ Just add more Tree objects `Tree tree = new Tree(15);` to main.
    }
 ```
 
-2. **Size of trees.**  
+2. **Size of trees**  
 use `tree.setSize(size);` to change the size of the tree.
-3. Positions
-3. Angle position of trees
+3. **Positions**  
+3. **Angle position of trees**  
 use `tree.setTreeAngle(angle);` to set the angle of the tree. Angle is measured in degrees, where 0 is the right-most of the screen  and 180 is the left-most of the screen.
-3. Angle separation
+3. **Angle separation**  
 use `tree.setSeparationAngle(Angle);` to set the angle seperation between branches. This angle will dictate how far appart should each branch be from its sibling branch.
 
-5. Delay between paintings  
+5. **Delay between paintings**    
 
 ### Done!
 After you are done editing your tree, just call `tree.draw();` to draw it!
