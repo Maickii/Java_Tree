@@ -4,8 +4,8 @@ The purpose of this project is to create visually apealing trees in Java using T
 
 <a href="https://imgflip.com/gif/1wtb3u"><img src="https://i.imgflip.com/1wtb3u.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/1wtbd5"><img src="https://i.imgflip.com/1wtbd5.gif" title="made at imgflip.com"/></a>
-<a href="https://imgflip.com/gif/1wt8m0"><img src="https://i.imgflip.com/1wt8m0.gif" title="made at imgflip.com"/></a>
-<a href="https://imgflip.com/gif/1wt926"><img src="https://i.imgflip.com/1wt926.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/1wtbk7"><img src="https://i.imgflip.com/1wtbk7.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/1wtbnx"><img src="https://i.imgflip.com/1wtbnx.gif" title="made at imgflip.com"/></a>
 
 ### Change it to your liking!
 It is easy modify many properties of the trees.
