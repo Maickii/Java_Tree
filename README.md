@@ -2,6 +2,8 @@
 
 The purpose of this project is to create visually apealing trees in Java using Trees data structures. 
 
+![alt text]<a href="https://imgflip.com/gif/1wt7uv"><img src="https://i.imgflip.com/1wt7uv.gif" title="made at imgflip.com"/></a>
+
 ### Change it to your liking!
 It is easy modify many properties of the trees.
 Here is a list of the things you can change in this code.
@@ -28,3 +30,8 @@ After you are done editing your tree, just call `tree.draw();` to draw it!
 
 
 ![alt text](https://github.com/Maickii/Java_Tree/blob/master/2017-03-05%20(2).png "Tree")
+
+
+<a href="https://imgflip.com/gif/1wt88r"><img src="https://i.imgflip.com/1wt88r.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/1wt8m0"><img src="https://i.imgflip.com/1wt8m0.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/1wt926"><img src="https://i.imgflip.com/1wt926.gif" title="made at imgflip.com"/></a>
