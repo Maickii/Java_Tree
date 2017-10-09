@@ -11,12 +11,29 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
+/**
+ * This class takes the usage of the JFrame, and the Graphics2D libraries.
+ * This class will enable user to draw trees as they wish. The class takes
+ * advantage of the fact that each branch can be split into two other child
+ * branches and so on.
+ * <br>How to use:
+ * <br> You must always call one of the constructors {@link #Tree(int)}, {@link #Tree(int, Color)}
+ * <br> Then you can custumize the tree as you like it using the setters methods:
+ * <br>	{@link #setSize(int)}
+ * <br>	{@link #setTreeAngle(int)}
+ * <br>	{@link #setSeparationAngle(int)}
+ * <br>	{@link #setPositionY(int)}
+ * <br>	{@link #setPositionX(int)}
+ * <br> After all is that set, call the {@link #draw(boolean)} method. 
+ * @author Michael Santana
+ * @see <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL Trees</a>
+ * @see JFrame
+ */
 public class Tree {
 	private static Branch root = null;
 	private static Color defaultColor = new Color(126, 56, 200);
 	private Color desiredColor = null;
-	boolean holder = false;
-	public static Paint paint = new Paint(); //are multiple instances created?
+	private static Paint paint = new Paint(); //are multiple instances created? no
 	private Random random = new Random();
 	private static JFrame frame;
 	private int limit;
@@ -26,12 +43,12 @@ public class Tree {
 	private int treeAngle = 90;
 	private int rootPositionX = 400;
 	private int rootPositionY = 400;
+	private int faster = 115;
 	private static Dimension screenSize;
 
 	/**
-	 * @param limit This parameter determines the maximum possible ancestry length
-	 * @param color determines the color of the whole tree. If null, or otherwise
-	 * not passed in, each branch color will be selected at random
+	 * @param limit This parameter determines the maximum possible ancestry length.
+	 * <br>Each branch color will be selected at random
 	 */
 	Tree(int limit)
 	{
@@ -55,16 +72,16 @@ public class Tree {
 	}
 	
 	/**
-	 * @param tryToResize when true, this will resize the tree to be proportional
+	 * @param safety when true, this will resize the tree to be proportional
 	 * to your screen when the tree is going outside of your screen. Otherwise,
 	 * the tree is drawn as is.
 	 */
-	public void draw(boolean tryToResize)
+	public void draw(boolean safety)
 	{
 		if (!drawn)
 		{
 			drawn = true;
-			if (tryToResize && 
+			if (safety && 
 					(decreaseFactor * 52 >= screenSize.height || 
 					rootPositionY  < (decreaseFactor * 52)))
 			{
@@ -77,26 +94,53 @@ public class Tree {
 			drawTree();
 		}
 	}
+	
+	/**
+	 * @param positionX sets the X position of the root branch. This is based on
+	 * the pixels on your screen, 0 being the left side of your screen, and
+	 * increasing in value as you move to the right of your screen. 
+	 * <br>Note: this setting might be overwritten if the safety is on.
+	 */
 	public void setPositionX(int positionX)
 	{
 		this.rootPositionX = positionX;
 	}
 	
+	/**
+	 * @param positionY sets the Y position of the root branch. This is based on
+	 * the pixels on your screen, 0 being the top side of your screen, and
+	 * increasing in value as you move downward on your screen. 
+	 * <br>Note: this setting might be overwritten if the safety is on.
+	 */
 	public void setPositionY(int positionY)
 	{
 		this.rootPositionY = positionY;
 	}
 	
+	/**
+	 * @param angle the angle the root tree is facing. Angle is in measures of degrees. 
+	 * Degree 0 is to the right of the screen, 90 is vertical.
+	 * Degree rotates in a counterclockwise motion.
+	 */
 	public void setTreeAngle(int angle)
 	{
 		this.treeAngle = angle;
 	}
+	
+	/**
+	 * @param angle sets the separation between the center of two child branches. 
+	 * <br>Note: this setting might be overwritten if the safety is on.
+	 */
 	public void setSeparationAngle(int angle)
 	{
 		// further development: determine what is a good range to stop user from crashing code
 		this.separationAngle = angle;
 	}
 	
+	/**
+	 * @param angle sets how big the tree should be displayed. 
+	 * <br>Note: this setting might be overwritten if the safety is on.
+	 */
 	public void setSize(int size)
 	{
 		// further development: determine what is a good range to stop user from crashing code
@@ -111,7 +155,7 @@ public class Tree {
 	 * @param color sets the color for the entire tree. if null, then it is randomly generated.
 	 * @return Returns a generated tree in terms of the root branch
 	 */
-	public Branch generateTree(Branch currentBranch, int currentGen, int limit, boolean debugging) {
+	private Branch generateTree(Branch currentBranch, int currentGen, int limit, boolean debugging) {
 		if (desiredColor == null)
 		{
 			defaultColor = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
@@ -134,19 +178,10 @@ public class Tree {
 
 		currentBranch.createChildren(branchLine, branchLine2, defaultColor, currentGen);
 		currentGen++;
-		generateTree(currentBranch.leftChild, debugging(currentGen, debugging), limit, debugging);
+		generateTree(currentBranch.leftChild, currentGen, limit, debugging);
 		generateTree(currentBranch.rightChild, currentGen, limit, false);
 
 		return root;
-	}
-	
-	public int debugging(int currentGen, boolean debugging)
-	{
-		if (debugging)
-		{
-			System.out.println(currentGen);
-		}
-		return currentGen;
 	}
 	
 	/**
@@ -156,7 +191,7 @@ public class Tree {
 	 * has some hard coded parameters such as the size of the frame
 	 * that can be reviewed later on.
 	 */
-	public void initFrame() {
+	private void initFrame() {
 		if (frame != null) {
 			return; // Can't create more than one instance of frame
 		}
@@ -242,7 +277,7 @@ public class Tree {
 	/**
 	 * @return Returns the number of generations of a tree.
 	 */
-	public int getNumberOfGeneration() {
+	private int getNumberOfGeneration() {
 		Branch temp = root;
 		int i = 0;
 		while (temp != null) {
@@ -283,9 +318,11 @@ public class Tree {
 	}
 	
 	/**
-	 * This method draws the tree in slow motion.
+	 * This draws the tree.
+	 * <br>If the safety is on, the tree will be set to optimal settings.
+	 * <br>This method draws the tree in slow motion.
 	 */
-	public void drawTree() {
+	private void drawTree() {
 		int i = 0;
 		int genNum = getNumberOfGeneration();
 		for (i = 1; i < genNum; i++) {
@@ -294,7 +331,6 @@ public class Tree {
 //			delay(20);
 			slowMotion();
 		}
-		System.out.println("Generation: " + i);
 		if (desiredColor == null) {
 			for (int n = 0; n < getListOfGenerationN(i-1).size(); n++) {
 				paint.addCircle(getListOfGenerationN(i-1).get(n).trunk.getP2(),
@@ -311,10 +347,9 @@ public class Tree {
 		}
 	}
 
-
-	int faster = 115;
 	/**
-	 * This method slows down the drawing process by putting the thread to sleep
+	 * This method slows down the drawing process by putting the thread to sleep.
+	 * This is used for aesthetics.  
 	 */
 	private void slowMotion() {
 		try {
@@ -327,9 +362,13 @@ public class Tree {
 			faster = 0;
 		}
 	}
+	/**
+	 * This method slows down the drawing process by putting the thread to sleep.
+	 * This is used for aesthetics.  
+	 */
+	@SuppressWarnings("unused")
 	private void delay(long delay)
 	{
-
 		try        
 		{
 			Thread.sleep(delay);
