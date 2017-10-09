@@ -32,7 +32,7 @@ If you wish to use a constant time between frames you have to manually add `dela
 Further development is needed easily switch between these settings at optimal performance. 
 
 ### Done!
-Note: this setting might be overwritten if the safety is on.
+Note: All setting might be overwritten if the safety is on.
 After you are done editing your tree, just call `tree.draw(boolean safety);` to draw it!
 
 
