@@ -42,19 +42,20 @@ public class Paint extends JComponent {
 
 	}
 
-	public void addBranches(ArrayList<Branch> branches) {
+	protected void addBranches(ArrayList<Branch> branches) {
 		for (int i = 0; i < branches.size(); i++) {
 			lines.add(branches.get(i).trunk);
 			lineColors.add(branches.get(i).color);
 		}
 	}
 
-	public void addLine(Line2D line, Color color) {
+	protected void addLine(Line2D line, Color color) {
 		lines.add(line);
 		lineColors.add(color);
 	}
 
-	public void addCircle(Point2D point2d, Color color) {
+	
+	protected void addCircle(Point2D point2d, Color color) {
 		circles.add(new Ellipse2D.Double(point2d.getX() - 5, point2d.getY() - 5, 10, 10));
 		circleColors.add(color);
 	}
